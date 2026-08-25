@@ -4,3 +4,8 @@
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("n", "<leader>j", "}", { desc = "Next paragraph" })
 vim.keymap.set("n", "<leader>k", "{", { desc = "Previous paragraph" })
+
+-- Split panes (match tmux: prefix+v / prefix+-)
+vim.keymap.set("n", "<leader>v", "<cmd>vsplit<cr><cmd>wincmd =<cr>", { desc = "Split right (horizontal)" })
+vim.keymap.set("n", "<leader>-", "<cmd>split<cr><cmd>wincmd =<cr>", { desc = "Split below (vertical)" })
+vim.keymap.del("n", "<leader>|")
