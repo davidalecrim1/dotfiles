@@ -5,12 +5,16 @@
 -- to split these, so an attention-grabbing color (orange) ends up looking
 -- like a focus indicator even on panels that aren't focused. Green reads
 -- fine in both places, since it's LazyGit's own conventional default.
+--
+-- "String" is a yellow-green that sits too close to the orange/tan used
+-- for modified-file markers; SnacksPickerGitStatusStaged is madara's true
+-- ANSI green, so it reads as a distinct, intentional accent.
 return {
   "folke/snacks.nvim",
   opts = {
     lazygit = {
       theme = {
-        activeBorderColor = { fg = "String", bold = true },
+        activeBorderColor = { fg = "SnacksPickerGitStatusStaged", bold = true },
       },
     },
   },
