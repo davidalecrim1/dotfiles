@@ -5,6 +5,7 @@ local favorites = {
   { lhs = "<leader>ca", desc = "Code action" },
   { lhs = "<leader>rn", desc = "Rename symbol" },
   { lhs = "<leader>gg", desc = "Lazygit (Root Dir)" },
+  { lhs = "<leader>sr", desc = "Search and Replace" },
 }
 
 local function favorite_keymaps()
