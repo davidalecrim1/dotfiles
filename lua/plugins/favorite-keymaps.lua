@@ -5,6 +5,18 @@ local favorites = {
   { lhs = "<leader>ca", desc = "Code action" },
   { lhs = "<leader>rn", desc = "Rename symbol" },
   { lhs = "<leader>gg", desc = "Lazygit (Root Dir)" },
+  { lhs = "<leader>gv", desc = "Diffview: uncommitted work (tree + index)" },
+  { lhs = "<leader>gm", desc = "Diffview: branch commits vs trunk" },
+  { lhs = "<leader>gV", desc = "Diffview: history of current file" },
+  { lhs = "<leader>ghr", desc = "Discard hunk (restore to branch, then :w)" },
+  { lhs = "<leader>ghR", desc = "Discard every hunk in the file (then :w)" },
+  { lhs = "]h", desc = "Next hunk" },
+  { lhs = "[h", desc = "Previous hunk" },
+  { lhs = "1gt", desc = "Go to tab 1 (files)" },
+  { lhs = "gt", desc = "Next tab (toggle files <-> Diffview)" },
+  { lhs = "2gt", desc = "Go to tab 2 (Diffview)" },
+  { lhs = "<leader>br", desc = "Delete buffers to the right" },
+  { lhs = "<leader>bl", desc = "Delete buffers to the left" },
   { lhs = "<leader>sr", desc = "Search and Replace" },
 }
 
