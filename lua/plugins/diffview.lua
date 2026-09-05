@@ -46,6 +46,8 @@ return {
       keymaps = {
         view = {
           { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
+          -- g<C-x> is the default but awkward to reach; gl = "layout".
+          { "n", "gl", actions.cycle_layout, { desc = "Cycle layout (side-by-side / stacked)" } },
         },
         file_panel = {
           { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
