@@ -15,6 +15,7 @@ local favorites = {
   { lhs = "1gt", desc = "Go to tab 1 (files)" },
   { lhs = "gt", desc = "Next tab (toggle files <-> Diffview)" },
   { lhs = "2gt", desc = "Go to tab 2 (Diffview)" },
+  { lhs = "<C-w>q", desc = "Close window (like split buffer)" },
   { lhs = "<leader>br", desc = "Delete buffers to the right" },
   { lhs = "<leader>bl", desc = "Delete buffers to the left" },
   { lhs = "<leader>sr", desc = "Search and Replace" },
