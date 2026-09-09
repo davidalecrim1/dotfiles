@@ -35,6 +35,13 @@ return {
     local actions = require("diffview.actions")
     return {
       enhanced_diff_hl = true,
+      hooks = {
+        -- Diffview folds every unchanged hunk by default. Show the full file like
+        -- VS Code/Zed do; zM folds the unchanged parts back when a diff is huge.
+        diff_buf_win_enter = function(_, winid)
+          vim.wo[winid].foldenable = false
+        end,
+      },
       view = {
         default = { winbar_info = true },
         merge_tool = { layout = "diff3_mixed", winbar_info = true },
