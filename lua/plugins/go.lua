@@ -14,6 +14,16 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        golangcilint = {
+          prepend_args = { "--config", vim.fn.expand("~/.golangci.yml") },
+        },
+      },
+    },
+  },
+  {
     "nvim-neotest/neotest",
     ft = { "go", "gomod", "gowork", "gotmpl" },
     opts = {
