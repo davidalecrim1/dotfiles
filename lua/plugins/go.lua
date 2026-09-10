@@ -7,6 +7,9 @@ return {
           settings = {
             gopls = {
               buildFlags = { "-tags=integration" },
+              analyses = {
+                ST1000 = false, -- package comments; excluded by golangci-lint defaults
+              },
             },
           },
         },
