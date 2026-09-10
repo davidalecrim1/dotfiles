@@ -23,6 +23,42 @@ local function diff_trunk()
   vim.cmd("DiffviewOpen " .. trunk .. "...HEAD")
 end
 
+-- Pick any past commit and review everything from it up to HEAD. The range is
+-- anchored on the commit's parent so the picked commit is itself included:
+-- <sha>...HEAD alone is empty when you pick HEAD, which just looks broken.
+local function diff_commit()
+  Snacks.picker.git_log({
+    -- Plain `git show` prints no patch for a merge commit, so picking one of
+    -- those previewed as a bare message. Diff against the first parent instead:
+    -- everything the merged branch brought in, the way a PR reads.
+    preview = function(ctx)
+      Snacks.picker.preview.cmd({
+        "git",
+        "--no-pager",
+        "show",
+        "-m",
+        "--first-parent",
+        "--stat",
+        "--patch",
+        ctx.item.commit,
+      }, ctx, { ft = "git" })
+    end,
+    confirm = function(picker, item)
+      picker:close()
+      if not (item and item.commit) then
+        return
+      end
+      -- The very first commit of a repo has no parent to anchor on.
+      local parent = item.commit .. "^"
+      local check = { "git", "rev-parse", "--verify", "--quiet", parent }
+      if vim.system(check, { cwd = item.cwd }):wait().code ~= 0 then
+        parent = item.commit
+      end
+      vim.cmd("DiffviewOpen " .. parent .. "...HEAD")
+    end,
+  })
+end
+
 return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory", "DiffviewToggleFiles" },
@@ -30,6 +66,7 @@ return {
     { "<leader>gv", toggle("DiffviewOpen"), desc = "Diffview (working tree)" },
     { "<leader>gV", toggle("DiffviewFileHistory %"), desc = "Diffview (file history)" },
     { "<leader>gm", diff_trunk, desc = "Diffview (vs trunk)" },
+    { "<leader>gC", diff_commit, desc = "Diffview (pick commit vs HEAD)" },
   },
   opts = function()
     local actions = require("diffview.actions")
