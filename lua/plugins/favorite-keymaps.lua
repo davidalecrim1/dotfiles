@@ -17,6 +17,7 @@ local favorites = {
   { lhs = "<leader>ghR", desc = "Discard every hunk in the file (then :w)" },
   { lhs = "]h", desc = "Next hunk" },
   { lhs = "[h", desc = "Previous hunk" },
+  { lhs = "gf", desc = "Diffview: open current file in the files tab" },
   { lhs = "1gt", desc = "Go to tab 1 (files)" },
   { lhs = "gt", desc = "Next tab (toggle files <-> Diffview)" },
   { lhs = "2gt", desc = "Go to tab 2 (Diffview)" },
