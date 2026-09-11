@@ -1,0 +1,213 @@
+[
+  // Zed keymap
+  //
+  // Vim-mode bindings below mirror LazyVim's defaults (windows, buffers,
+  // splits, diagnostics, git hunks, LSP, pickers). Non-vim bindings
+  // (terminal, agent, project panel) are personal and unrelated to LazyVim.
+  //
+  // For information on binding keys, see the Zed
+  // documentation: https://zed.dev/docs/key-bindings
+  //
+  // To see the default key bindings run `zed: open default keymap`
+  // from the command palette.
+  {
+    "context": "ProjectSearchBar || ProjectSearchView",
+    "use_key_equivalents": true,
+    "unbind": { "alt-cmd-f": "project_search::OpenTextFinder" },
+  },
+  {
+    "bindings": {
+      "cmd-`": "workspace::ActivateNextWindow",
+      "cmd-shift-`": "workspace::ActivatePreviousWindow",
+    },
+  },
+  {
+    "context": "Editor && renaming",
+    "bindings": {
+      "enter": "editor::ConfirmRename",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && hover_visible",
+    "bindings": {
+      "j": "editor::ScrollCursorBottom",
+      "k": "editor::ScrollCursorTop",
+    },
+  },
+  {
+    // Save (insert, normal, visual) — LazyVim <C-s>
+    "context": "Editor",
+    "bindings": {
+      "ctrl-s": "workspace::Save",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // Window navigation — LazyVim <C-h/j/k/l>
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // Splits — LazyVim <leader>- (below) / <leader>| (right)
+      "space -": "pane::SplitDown",
+      "space |": "pane::SplitRight",
+
+      // Buffers — LazyVim <S-h>/<S-l>, [b/]b, <leader>bd
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "[ b": "pane::ActivatePreviousItem",
+      "] b": "pane::ActivateNextItem",
+      "space b d": "pane::CloseActiveItem",
+      "space b o": ["pane::CloseInactiveItems", { "close_pinned": false }],
+
+      // Pickers — LazyVim snacks
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f r": "file_finder::Toggle",
+      "space ,": "tab_switcher::Toggle",
+      "space /": "workspace::NewSearch",
+      "space s g": "workspace::NewSearch",
+
+      // Explorer — LazyVim <leader>e
+      "space e": "project_panel::ToggleFocus",
+
+      // New file — LazyVim <leader>fn
+      "space f n": "workspace::NewFile",
+
+      // Format — LazyVim <leader>cf
+      "space c f": "editor::Format",
+
+      // Diagnostics — LazyVim ]d/[d, ]e/[e, <leader>cd
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] e": "editor::GoToDiagnostic",
+      "[ e": "editor::GoToPreviousDiagnostic",
+      "space c d": "editor::Hover",
+
+      // Git — LazyVim ]h/[h hunks, <leader>gg, <leader>gb
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      "space g g": "git_panel::ToggleFocus",
+      "space g b": "editor::ToggleGitBlame",
+
+      // LSP — LazyVim gd/gr/gI/gy/gD, K, <leader>ca/cr
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g r": "editor::FindAllReferences",
+      "g I": "editor::GoToImplementation",
+      "g y": "editor::GoToTypeDefinition",
+      "shift-k": "editor::Hover",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+
+      // Symbols — LazyVim <leader>ss / <leader>sS
+      "space s s": "outline::Toggle",
+      "space s S": "project_symbols::Toggle",
+
+      // Move lines — LazyVim <A-j>/<A-k>
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // Move lines — LazyVim <A-j>/<A-k>
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      // Format — LazyVim <leader>cf
+      "space c f": "editor::Format",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+    },
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "cmd-k cmd-g": "assistant::InlineAssist",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-k cmd-g": "assistant::InlineAssist",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "s h": "workspace::ActivatePaneLeft",
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "shift-a": "project_panel::NewDirectory",
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "a": "project_panel::NewFile",
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "d": "project_panel::Delete",
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "r": "project_panel::Rename",
+    },
+  },
+  {
+    "context": "(AgentPanel && acp_thread)",
+    "bindings": {
+      "cmd-t": "agent::NewThread",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-r cmd-w": [
+        "pane::CloseAllItems",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b\r"],
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "shift-t": "workspace::OpenInTerminal",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-~": "terminal_panel::ToggleFocus",
+    },
+  },
+]

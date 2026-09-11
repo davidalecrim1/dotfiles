@@ -1,9 +1,47 @@
-tt.*
-.tests
-doc/tags
-debug
-.repro
-foo.*
-*.log
-data
-.DS_Store
+# Ignore everything, whitelist tracked configs explicitly
+*
+!.gitignore
+!README.md
+
+# Neovim
+!nvim/
+!nvim/**
+nvim/tt.*
+nvim/.tests
+nvim/doc/tags
+nvim/debug
+nvim/.repro
+nvim/foo.*
+nvim/*.log
+nvim/data
+nvim/.DS_Store
+
+# tmux
+!tmux/
+tmux/*
+!tmux/tmux.conf
+
+# Zed
+!zed/
+zed/*
+!zed/settings.json
+!zed/keymap.json
+
+# Ghostty
+!ghostty/
+ghostty/*
+!ghostty/config
+
+# Herdr
+!herdr/
+herdr/*
+!herdr/config.toml
+
+# iTerm2
+!iterm2/
+iterm2/*
+!iterm2/com.googlecode.iterm2.plist
+!iterm2/coolnight.itermcolors
+
+# Local Claude Code state
+nvim/.claude/
