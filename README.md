@@ -10,6 +10,7 @@ Personal `~/.config` synced across machines.
 | `ghostty/` | Ghostty terminal |
 | `iterm2/` | iTerm2 preferences and color scheme |
 | `herdr/` | Herdr |
+| `git/` | Global ignore file and hooks (`git config --global core.hooksPath ~/.config/git/hooks`) |
 
 ## Setup
 

@@ -45,3 +45,10 @@ iterm2/*
 
 # Local Claude Code state
 nvim/.claude/
+
+# Git
+!git/
+git/*
+!git/ignore
+!git/hooks/
+!git/hooks/**

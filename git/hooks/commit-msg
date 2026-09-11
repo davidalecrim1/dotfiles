@@ -1,0 +1,5 @@
+#!/bin/sh
+# Strip AI-session attribution trailers that Claude Code appends to commits.
+sed -i '' -e '/^Claude-Session: /d' -e '/^Co-Authored-By: Claude /d' "$1"
+# Drop trailing blank lines left behind
+sed -i '' -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$1"
