@@ -10,3 +10,9 @@ font-thicken = true
 
 # option+backspace = delete previous word (Ghostty 1.2 dropped the builtin binding)
 keybind = option+backspace=text:\x1b\x7f
+
+theme = Vercel
+
+# background blur
+background-opacity = 0.85
+background-blur = 20
