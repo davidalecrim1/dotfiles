@@ -9,11 +9,12 @@ focus_pane_left = ["prefix+h", "prefix+left"]
 focus_pane_down = ["prefix+j", "prefix+down"]
 focus_pane_up = ["prefix+k", "prefix+up"]
 focus_pane_right = ["prefix+l", "prefix+right"]
+rename_tab = ["prefix+,", "prefix+shift+t"]
 
 [ui]
 show_agent_labels_on_pane_borders = true
 
-agent_panel_sort = "spaces"
+agent_panel_sort = "priority"
 [ui.toast]
 delivery = "system"
 
