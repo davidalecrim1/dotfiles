@@ -8,11 +8,13 @@ font-family = "MesloLGS Nerd Font Mono"
 font-size = 13
 font-thicken = true
 
-# option+backspace = delete previous word (Ghostty 1.2 dropped the builtin binding)
+# Option + Backspace: Delete previous word
 keybind = option+backspace=text:\x1b\x7f
+
+# Cmd + Backspace: Delete to start of line (sends Ctrl+U / \x15)
+keybind = cmd+backspace=text:\x15
 
 theme = Vercel
 
-# background blur
 background-opacity = 0.85
 background-blur = 20
